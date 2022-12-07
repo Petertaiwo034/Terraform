@@ -1,0 +1,14 @@
+Go to the extension section on the VS code to install "Remote- ssh"
+You will see a "><" at the left bottom of the screen, click on it 
+Search for Open SSH Configuration file 
+Click on the path from your local system
+Create a hostfile (look below) 
+Host Jenkins
+    HostName 30.133.14.12
+    User ec2-user
+    IdentityFile ~/Downloads/Class29.pem.pem
+You will see a "><" at the left bottom of the screen, click on it 
+Click on "connent to Host"
+Select the host and this will automatically SSH into the sever
+On the bottom which is the terminal you can access the server e.g cd into file or make a directory
+if you want to write into the file you need the "editor" to switch use the the command "code ."
