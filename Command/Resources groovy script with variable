@@ -1,0 +1,79 @@
+# Terraform Settings Block
+terraform {
+  required_version = "~> 1.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"            # Optional but recommended in production
+    }
+  }
+}
+
+# Provider Block
+provider "aws" {
+  profile = "default"
+  region  = "us-west-2"
+}
+
+# Resource Block
+resource "aws_instance" "ec2demo" {
+  ami           = "ami-0e5b6b6a9f3db6db8"
+  instance_type = "t2.micro"
+  tag = {
+   "Name" = "Terraform server"
+   }
+}
+
+You can create a file for the 
+1. Provider.tf
+# Terraform Settings Block
+terraform {
+  required_version = "~> 1.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"            # Optional but recommended in production
+    }
+  }
+}
+
+# Provider Block
+provider "aws" {
+  profile = "default"
+  region  = var.aws_region
+}
+
+
+Then create a Resources file ec2.tf
+# Resource Block
+resource "aws_instance" "ec2demo" {
+  ami           = var.AMI ID
+  instance_type = var.EC2 Instance type
+  tag = {
+   "Name" = "Terraform server"
+   }
+}
+
+
+Now you can create a variable file
+variable.tf
+# Input Variables
+variable "aws_region" {
+  description = "Region in which AWS resources to be created"
+  type        = string
+  default     = "us-west-1"
+}
+
+variable "ec2_ami_id" {
+  description = "AMI ID"
+  type        = string
+  default     = "ami-0915bcb5fa77e4892" # Amazon2 Linux AMI ID
+}
+
+variable "ec2_instance_count" {
+  description = "EC2 Instance type"
+  type        = string
+  default     = "t2.micro"
+}
+
+Note each file must be in the same folder
