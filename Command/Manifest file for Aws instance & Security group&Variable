@@ -49,6 +49,8 @@ Then create a Resources file ec2.tf
 resource "aws_instance" "ec2demo" {
   ami           = var.AMI ID
   instance_type = var.EC2 Instance type
+  vpc_security_group_ids = [aws_security_group.allow_tls.ids]
+  
   tag = {
    "Name" = "Terraform server"
    }
@@ -76,4 +78,34 @@ variable "ec2_instance_count" {
   default     = "t2.micro"
 }
 
+
+
+Create a securitygroup.tf
+
+resource "aws_security_group" "allow_tls" {
+  name        = "allow_tls"
+  description = "Allow TLS inbound traffic"
+  
+
+  ingress {
+    description      = "TLS from VPC"
+    from_port        = 443
+    to_port          = 443
+    protocol         = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+    }
+    
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+    
+  }
+
+  tags = {
+    Name = "allow_tls"
+  }
+}
 Note each file must be in the same folder
