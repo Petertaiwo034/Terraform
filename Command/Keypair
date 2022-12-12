@@ -1,0 +1,20 @@
+How to pass a keypair 
+Go to aws under key pair and create one
+Come to your variable file and create a variable file
+variable "key_pair" {
+  description = "AWS KEY PAIR"
+  type        = string
+  default     = "Class29key.pem"
+  }
+  And you will pass it under the resources as 
+  # Resource Block
+resource "aws_instance" "ec2demo" {
+  ami           = var.ec2_ami_id
+  instance_type = var.ec2_instance_count
+  vpc_security_group_ids = [aws_security_group.allow_tls.id]
+  key_name = var.key_pair 
+  
+  tag = {
+   "Name" = "Terraform server"
+   }
+}
