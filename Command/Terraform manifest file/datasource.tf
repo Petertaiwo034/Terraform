@@ -2,7 +2,7 @@
 #and on the left side of the screen select "Documentation". search for EC2 and under EC2 scroll down to Data source and you wil see aws_ami. select and under 
 #Example you will see the sample file below
 
-data "aws_ami" "amazon linus" {
+data "aws_ami" "amazon_linus" {
   most_recent      = true
   name_regex       = "^myami-\\d{3}"
   owners           = [amazon] #(it could be. self if you have create your ami yourself 
