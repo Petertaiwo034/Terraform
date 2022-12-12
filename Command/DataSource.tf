@@ -34,7 +34,7 @@ data "aws_ami" "amazon linus" {
 
 #Now in your resource file you have to pass the data source
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.amazon linus.id (data. resource name. name you used to save the resource. id)
+  ami           = data.aws_ami.amazon linus.id (data. resource type. name you used to save the resource (resource name). id)
   instance_type = "t3.micro"
 
   tags = {
