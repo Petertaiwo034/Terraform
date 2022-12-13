@@ -6,5 +6,4 @@ resource "aws_instance" "ec2" {
     }
 }
 
-output "instance_id" {
-    value = aws_instance.ec2.id
+
