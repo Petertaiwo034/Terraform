@@ -1,0 +1,4 @@
+To create a modules you have to create a directory, in the directory you will create a provider/version file where you will define your terraform block,
+provider block and modules block. Then you will create a directory where you will create all your resources file e.g ec2 rsources, variable, security group,
+data sources and output. In modules if you will be passing an output you must include the output below your the module block in the provider file you have 
+module block. 
