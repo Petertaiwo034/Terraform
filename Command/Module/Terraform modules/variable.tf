@@ -3,9 +3,8 @@ variable "aws_region"{
   default = "us-west-1"
 }
 
-variable "my_ami"{
+variable "ec2name"{
   type = string
-  default = "ami-0e0bf4b3a0c0e0adc"
 }
 
 variable "inst_type"{
@@ -15,5 +14,5 @@ variable "inst_type"{
 
 variable "my_key"{
   type = string
-  default = "Automationkey"
+  default = "Class29key.pem"
 }
