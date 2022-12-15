@@ -4,8 +4,7 @@
 
 data "aws_ami" "amazon linus" {
   most_recent      = true
-  name_regex       = "^myami-\\d{3}"
-  owners           = [amazon] #(it could be. self if you have create your ami yourself 
+  owners           = ["amazon"] #(it could be. self if you have create your ami yourself 
 
   filter {
     name   = "name"                     
